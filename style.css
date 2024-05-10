@@ -5,41 +5,91 @@ body{
 
 .menu-box{
     background-color: #305cd4;
-    width: 14%;
+    width: 18%;
     overflow: hidden;
-    min-height: 670px;
+    min-height: 100vh;
 }
 
 .content-menu{
     padding-left: 25px;
-    padding-top: 15px;
+    padding-top: 17px;
 }
 
 .logo-menu img{
-    background-color: #8babff;
-    border-radius: 9px;
+    width: 60px;
 }
 
 .list-menu{
     padding-top: 70px;
     padding-left: 25px;
     display: inline-block;
-    padding-right: 130px;
+    min-height: 200px;
+    min-width: 227px;
 }
 
-.menu{
-    display: inline;
+.menu a{
+    display: flex;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.menu img{
-    width: 40px;
+.menu a:hover{
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+}
+
+.menu a:hover img{
+    filter: invert(1);
+}
+
+.menu a:hover h3{
+    color: black;
+    text-decoration: none;
+}
+
+.selected-menu{
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: flex;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-size: 200% auto;
+    align-items: center;
+}
+.selected-menu img{
+    filter: invert(1);
+}
+.list-menu .selected-menu h3{
+    color: black;
+}
+
+
+.list-menu img{
+    width: 35px;
+}
+
+.list-menu h3{
+    padding-left: 15px;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
 }
 
 .logo-menu p{
     display: inline;
     position: relative;
-    bottom: 25px;
-    left: 13px;
+    bottom: 23px;
+    left: 10px;
     font-weight: bold;
     color: white;
     font-size: 20px;
