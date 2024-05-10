@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.menu-box{
+    background-color: #305cd4;
+    width: 14%;
+    overflow: hidden;
+    min-height: 670px;
+}
+
+.content-menu{
+    padding-left: 25px;
+    padding-top: 15px;
+}
+
+.logo-menu img{
+    background-color: #8babff;
+    border-radius: 9px;
+}
+
+.list-menu{
+    padding-top: 70px;
+    padding-left: 25px;
+    display: inline-block;
+    padding-right: 130px;
+}
+
+.menu{
+    display: inline;
+}
+
+.menu img{
+    width: 40px;
+}
+
+.logo-menu p{
+    display: inline;
+    position: relative;
+    bottom: 25px;
+    left: 13px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p{
+    margin: 0;
+}
