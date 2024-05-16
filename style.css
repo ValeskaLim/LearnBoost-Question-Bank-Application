@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     width: 100%;
+    display: flex;
 }
 
 .menu-box{
@@ -12,24 +13,38 @@ body{
 }
 
 .content-menu{
-    padding-left: 25px;
-    padding-top: 17px;
+    margin-left: 25px;
+    margin-top: 17px;
 }
 
 .logo-menu{
+    display: flex;
+    align-items: center;
     width: 100%;
 }
 
 .logo-menu img{
-    width: 60px;
+    width: 80px;
+}
+
+.logo-menu p{
+    margin-left: 18px;
+    left: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .list-menu{
-    padding-top: 70px;
-    padding-left: 25px;
+    margin-top: 70px;
     display: inline-block;
     min-height: 100vh;
     width: 100%;
+}
+
+.menu{
+    margin-left: 20px;
 }
 
 .menu a{
@@ -64,12 +79,11 @@ body{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     display: flex;
+    margin-left: 20px;
     padding-left: 10px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    background-size: 200% auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
     align-items: center;
-    width: 100%;
 }
 .selected-menu img{
     filter: invert(1);
@@ -84,25 +98,38 @@ body{
 }
 
 .list-menu h3{
-    padding-left: 15px;
-    margin: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 17px;
     color: white;
 }
 
-.logo-menu p{
-    display: inline;
-    position: relative;
-    bottom: 23px;
-    left: 10px;
-    font-weight: bold;
-    color: white;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
 p{
     margin: 0;
+}
+
+.content{
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 100px;
+    padding-top: 17px;
+}
+
+.profile-box{
+    text-align: right;
+    padding-right: 40px;
+}
+
+.profile-box h2{
+    margin: 0;
+}
+
+.profile-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
