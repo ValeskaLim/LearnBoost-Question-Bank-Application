@@ -7,9 +7,13 @@ body{
 
 .menu-box{
     background-color: #305cd4;
-    width: 18%;
+    width: 100%;
     overflow: hidden;
     min-height: 100vh;
+    min-width: 180px;
+    max-width: 300px;
+    margin-top: 0;
+    transition: opacity 0.5s, transform 0.5s, width 0.5s;
 }
 
 .content-menu{
@@ -120,16 +124,45 @@ p{
 }
 
 .profile-box{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     text-align: right;
     padding-right: 40px;
+    width: auto;
 }
 
-.profile-box h2{
+.profile-box h2, .profile-box p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+}
+
+.profile-box img{
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0pt solid #000000;
 }
 
 .profile-container{
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
     flex-direction: column;
+}
+
+.upper-content h1 {
+    font-size: 40px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateX(-100%);
 }
