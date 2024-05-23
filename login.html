@@ -8,9 +8,22 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container">
-        <div class="banner">
-            <h1>LearnBoost</h1>
+    <script src="login.js"></script>
+    <div class="raw-container">
+        <div class="container">
+            <div class="banner">
+                <h1>LearnBoost</h1>
+            </div>
+            <div class="role">
+                <h1>Student</h1>
+            </div>
+            <div class="content">
+                <form name="login" action="login.php" onsubmit = "return validation()" method = "POST">
+                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <input class="btnSubmit" type="submit" value="LOGIN">
+                </form>
+            </div>
         </div>
     </div>
 </body>
