@@ -1,6 +1,6 @@
 function validation(){
-    var username = document.login.username.value;
-    var password = document.login.password.value;
+    var username = document.loginForm.username.value;
+    var password = document.loginForm.password.value;
 
     if(username.length == "" || password.length == ""){
         if(username.length == ""){
@@ -28,3 +28,14 @@ function validation(){
 function eraseText(){
     document.getElementById("username").value = "";
 }
+
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorMessage = urlParams.get('error');
+    if (errorMessage) {
+        document.getElementById('error').innerText = decodeURIComponent(errorMessage.replace(/\+/g, ' '));
+        const url = new URL(window.location);
+        url.searchParams.delete('error');
+        window.history.replaceState({}, document.title, url);
+    }
+};
