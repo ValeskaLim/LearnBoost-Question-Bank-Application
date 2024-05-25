@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnBoost</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="selection.css">
+</head>
+<body>
+    <script src="selection.js"></script>
+    <div class="raw-container">
+        <div class="container">
+            <div class="banner">
+                <h1>LearnBoost</h1>
+            </div>
+            <div class="content">
+                <form name="loginForm" onsubmit="return roleSelect(event)">
+                    <label>Select your role</label>
+                    <select name="roles" id="roles">
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                    <input class="btnSubmit" type="submit" value="LOGIN">
+                </form>
+                <div id="error" style="color: red;"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
