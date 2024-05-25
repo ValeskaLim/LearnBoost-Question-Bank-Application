@@ -1,0 +1,83 @@
+.raw-container{
+    background-color: #f8f4f4;
+    text-align: center;
+    width: 25%;
+    height: 29em;
+    margin: 0;
+    border: 1px solid rgb(235, 235, 235);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.container{
+    background-color: white;
+    height: 90%;
+}
+
+.banner{
+    background-color: #305cd4;
+    width: auto;
+    height: 5em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.banner h1{
+    margin: 0;
+    font-size: 27px;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+}
+
+.content{
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.content input{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    height: 30px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+label{
+    margin-left: 7em;
+}
+
+select{
+    background-color: white;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 0.5em;
+    text-align: left;
+    padding-left: 13px;
+    margin: 1em 8em 11.4em 8em;
+    height: 40px;
+    width: 15em;
+    display: block;
+}
+
+form .btnSubmit{
+    text-align: center;
+    font-size: 20px;
+    height: 55px;
+    margin-bottom: 0;
+    border: none;
+    color: white;
+    background-color: #08cc54;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
