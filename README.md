@@ -25,7 +25,7 @@ npm install
 
 7. Install Express.js and MySQL modules
 ```
-npm install express, mysql
+npm install express mysql
 ```
 
 8. Install Tailwind CSS
