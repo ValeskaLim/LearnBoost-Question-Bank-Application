@@ -11,9 +11,9 @@ function roleSelect(event){
     console.log('Role selected:', role);
     
     if(role == 'student')
-        window.location.href = 'loginstudent.php';
+        window.location.href = '/student-login';
     else if(role == 'teacher')
-        window.location.href = 'loginteacher.php';
+        window.location.href = '/teacher-login';
 
     return false;
 }

@@ -19,9 +19,8 @@
                 <h1 class="m-0 uppercase text-[20px]">Teacher</h1>
             </div>
             <div class="mt-[40px] mx-[30px] mb-[20px] text-left relative">
-                <form name="loginForm" onsubmit="return validation()" action="login.php" method="post">
-                    <input type="hidden" name="source" value="loginteacher.html" class="mt-[20px] mb-[50px] rounded-5 w-full
-                     block h-[30px] text-[15px] box-border">
+                <form name="loginForm" onsubmit="return validation()" action="/auth" method="post">
+                    <input type="hidden" name="userType" value="teacher">
                     <input type="text" id="username" name="username" placeholder="Username" class="mt-[20px] mb-[50px] rounded-5 w-full
                      block h-[30px] text-[15px] box-border pl-[20px]">
                     <input type="password" id="password" name="password" placeholder="Password" class="mt-[20px] mb-[50px] rounded-5 w-full

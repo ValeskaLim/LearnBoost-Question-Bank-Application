@@ -39,3 +39,18 @@ window.onload = function() {
         window.history.replaceState({}, document.title, url);
     }
 };
+
+function getQueryParams() {
+    const params = {};
+    window.location.search.substring(1).split('&').forEach(pair => {
+        const [key, value] = pair.split('=');
+        params[decodeURIComponent(key)] = decodeURIComponent(value);
+    });
+    return params;
+}
+
+// Display error message if it exists in the query parameters
+const params = getQueryParams();
+if (params.error) {
+    document.getElementById('error').textContent = params.error;
+}
