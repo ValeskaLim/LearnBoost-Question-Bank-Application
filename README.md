@@ -34,7 +34,12 @@ npm install -D tailwindcss
 npx tailwindcss init
 ```
 
-9. Run the development server
+9. Start the Tailwind CLI build process
+```
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+```
+
+10. Run the development server
 ```
 npm start
 ```
