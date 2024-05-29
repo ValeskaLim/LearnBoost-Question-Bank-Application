@@ -20,12 +20,40 @@ const app = express();
 app.use(session({
     secret: 'secret',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'src'))); // Serve static files from the 'src' directory
+app.use(express.static(path.join(__dirname, 'src')));
+
+function isAuthenticated(request, response, next) {
+    if (request.session.loggedin) {
+        next();
+    } else {
+        const userType = request.session.userType;
+        if (userType === 'student')
+            response.redirect('/student-login');
+        else if (userType === 'teacher')
+            response.redirect('/teacher-login');
+        else
+            response.redirect('/');
+    }
+}
+
+// Middleware to protect specific static files
+function protectStaticFiles(request, response, next) {
+    const protectedFiles = ['/homepage.html'];
+    if (protectedFiles.includes(request.path)) {
+        isAuthenticated(request, response, next);
+    } else {
+        next();
+    }
+}
+
+// Serve static files with protection for specific files
+app.use(protectStaticFiles);
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.get('/', (request, response) => {
     response.sendFile(path.join(__dirname, 'src/selection.html'));
@@ -50,13 +78,17 @@ app.post('/auth', (request, response) => {
         con.query('SELECT * FROM user WHERE username = ? AND password = ?', [username, password], (error, results, fields) => {
             if (error) throw error;
             if (results.length > 0) {
-                request.session.loggedin = true;
-                request.session.username = username;
-                response.redirect('/homepage.html');
+                request.session.regenerate((err) => {
+                    if (err) throw err;
+                    request.session.loggedin = true;
+                    request.session.username = username;
+                    request.session.userType = userType;
+                    response.redirect('/homepage');
+                });
             } else {
-                if(userType === 'student')
+                if (userType === 'student')
                     response.redirect('/student-login?error=Incorrect%20username%20and%2For%20password');
-                else if(userType === 'teacher')
+                else if (userType === 'teacher')
                     response.redirect('/teacher-login?error=Incorrect%20username%20and%2For%20password');
                 else {
                     response.redirect('/?error=Unknown%20user%20type');
@@ -64,21 +96,25 @@ app.post('/auth', (request, response) => {
             }
         });
     } else {
-        if(userType === 'student')
+        if (userType === 'student')
             response.redirect('/student-login?error=Please%20enter%20username%20and%20password');
-        else if(userType === 'teacher')
+        else if (userType === 'teacher')
             response.redirect('/teacher-login?error=Please%20enter%20username%20and%20password');
-
     }
 });
 
-app.get('/homepage', (request, response) => {
+// Middleware to check if the user is logged in
+function isAuthenticated(request, response, next) {
     if (request.session.loggedin) {
-        response.send(`Welcome back, ${request.session.username}!`);
+        next();
     } else {
-        response.send('Please login to view this page!');
+            response.redirect('/');
     }
-    response.end();
+}
+
+// Use the isAuthenticated middleware in the /homepage route
+app.get('/homepage', isAuthenticated, (request, response) => {
+    response.sendFile(path.join(__dirname, 'src/homepage.html'));
 });
 
 app.listen(3000, () => {

@@ -4,53 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearnBoost</title>
-    <link rel="icon" type="image/x-icon" href="assets/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <link href="./output.css" rel="stylesheet">
 </head>
-<body>
-    <div class="menu-box" id="menu-box">
-        <div class="content-menu">
-            <div class="logo-menu">
-                <img src="assets/logo.png">
-                <p>LearnBoost</p>
+<body class="m-0 p-0 w-full flex">
+    <div id="menu-box" class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[250px]
+     mt-0 transition-opacity duration-500 transition-transform duration-500 transition-width duration-500">
+        <div class="ml-[25px] mt-[17px]">
+            <div class="w-full items-center flex">
+                <img src="../assets/logo.png" class="w-[80px]">
+                <p class="ml-[18px] left-[10px] text-white text-[20px] font-bold font-mono">LearnBoost</p>
             </div>
-            <div class="list-menu">
-                <div class="selected-menu">
-                    <img src="assets/home-logo.png">
-                    <h3>Dashboard</h3>
+            <div class="mt-[70px] inline-block w-full">
+                <div class="bg-white rounded-tl-[5px] rounded-bl-[5px] flex ml-[20px] pl-[10px] py-[8px] items-center">
+                    <img src="../assets/home-logo.png" class="invert w-[35px]">
+                    <h3 class="my-0 ml-[15px] font-mono font-bold text-[17px]">Dashboard</h3>
                 </div>
-                <div class="menu">
-                    <a href="kelas.html">
-                        <img src="assets/ic_outline-class.png">
-                        <h3>Kelas</h3>
+                <div class="w-full flex pl-[20px] items-center transition-colors duration-300">
+                    <a href="kelas.html" class="w-full flex pl-[10px] py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[5px] rounded-bl-[5px] group">
+                        <img src="../assets/ic_outline-class.png" class="w-[35px] group-hover:invert">
+                        <h3 class="my-0 ml-[15px] font-mono font-bold text-[17px] text-white group-hover:text-black no-underline">Kelas</h3>
                     </a>
                 </div>
-                <div class="menu">
-                    <a href="latihan-soal.html">
-                        <img src="assets/barbel-logo.png">
-                        <h3>Latihan Soal</h3>
-                    </a>
-                </div>
-                <div class="menu">
-                    <a href="poin.html">
-                        <img src="assets/gravity-ui_graduation-cap.png">
-                        <h3>Poin</h3>
+                <div class="w-full flex pl-[20px] items-center transition-colors duration-300">
+                    <a href="latihan-soal.html" class="w-full flex pl-[10px] py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[5px] rounded-bl-[5px] group">
+                        <img src="../assets/barbel-logo.png" class="w-[35px] group-hover:invert">
+                        <h3 class="my-0 ml-[15px] font-mono font-bold text-[17px] text-white group-hover:text-black no-underline">Latihan Soal</h3>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="content">
-        <div class="profile-box">
-            <div class="profile-container">
-                <h2>Frans Andreas</h2>
-                <p>Students</p>
+    <div class="w-full pl-[80px] pt-[17px] pr-[40px]">
+        <div class="flex w-full items-center">
+            <h1 class="text-[40px] m-0 font-mono flex">Dashboard</h1>
+            <div class="flex items-center justify-end text-right w-auto ml-auto">
+                <div class="flex justify-end flex-col">
+                    <h2 class="font-serif m-0 font-bold">Frans Andreas</h2>
+                    <p class="font-serif m-0">10th Grade</p>
+                </div>
+                <img src="../assets/profile-holoen.jpg" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
             </div>
-            <img src="assets/profile-holoen.jpg">
         </div>
-        <div class="upper-content">
-            <h1>Dashboard</h1>
-        </div>
+        <hr class="mt-[20px]">
     </div>
     <script src="javascript.js"></script>
 </body>
