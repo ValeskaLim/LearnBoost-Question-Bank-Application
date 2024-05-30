@@ -1,5 +1,5 @@
-# lms-website
-Some (mid) project for assignment Software Engineer lessons at Binus University
+# Overview
+LearnBoost is an application for those students who want to study to enter a government university. Me with my friends developed this website  in order to complete our Software Engineering subject at our university. We build this web using HTML, Tailwind CSS, Node.js, Express.js and MySQL
 
 
 ## Installation
