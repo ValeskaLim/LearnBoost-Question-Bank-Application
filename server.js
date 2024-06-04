@@ -25,6 +25,7 @@ app.use(session({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'src')));
 
 function isAuthenticated(request, response, next) {
@@ -56,14 +57,10 @@ app.use(protectStaticFiles);
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.get('/', (request, response) => {
-    response.sendFile(path.join(__dirname, 'src/selection.html'));
-});
-
-app.get('/student-login', (request, response) => {
     response.sendFile(path.join(__dirname, 'src/loginstudent.html'));
 });
 
-app.get('/teacher-login', (request, response) => {
+app.get('/admin-login', (request, response) => {
     response.sendFile(path.join(__dirname, 'src/loginteacher.html'));
 });
 
@@ -86,21 +83,40 @@ app.post('/auth', (request, response) => {
                     response.redirect('/homepage');
                 });
             } else {
-                if (userType === 'student')
-                    response.redirect('/student-login?error=Incorrect%20username%20and%2For%20password');
-                else if (userType === 'teacher')
-                    response.redirect('/teacher-login?error=Incorrect%20username%20and%2For%20password');
-                else {
-                    response.redirect('/?error=Unknown%20user%20type');
-                }
+                response.redirect('/student-login?error=Incorrect%20username%20and%2For%20password');
             }
         });
     } else {
-        if (userType === 'student')
-            response.redirect('/student-login?error=Please%20enter%20username%20and%20password');
-        else if (userType === 'teacher')
-            response.redirect('/teacher-login?error=Please%20enter%20username%20and%20password');
+        response.redirect('/student-login?error=Please%20enter%20username%20and%20password');
     }
+});
+
+app.get('/user-grade', isAuthenticated, (request, response) => {
+    const username = request.session.username;
+    con.query('SELECT grade FROM user WHERE username = ?', [username], (error, results) => {
+        if(error){
+            return response.status(500).json({ error: 'Database query error' });
+        }
+        if(results.length > 0){
+            return response.status(404).json({ grade: results[0].grade });
+        } else {
+            return response.status(404).json({ error: 'User not found' });
+        }
+    });
+});
+
+app.get('/user-name', isAuthenticated, (request, response) => {
+    const username = request.session.username;
+    con.query('SELECT username FROM user WHERE username = ?', [username], (error, results) => {
+        if(error){
+            return response.status(500).json({ error: 'Database query error' });
+        }
+        if(results.length > 0){
+            return response.status(404).json({ username: results[0].username });
+        } else {
+            return response.status(404).json({ error: 'User not found' });
+        }
+    });
 });
 
 // Middleware to check if the user is logged in
