@@ -17,3 +17,33 @@ function checkZoomLevel() {
 
 window.addEventListener('resize', checkZoomLevel);
 window.addEventListener('load', checkZoomLevel);
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/user-grade')
+        .then(response => response.json())
+        .then(data => {
+            if (data.grade) {
+                document.querySelector('#grade').textContent = data.grade + 'th Grade';
+            } else {
+                document.querySelector('#grade').textContent = 'NULL';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching grade:', error);
+            document.querySelector('#grade').textContent = 'Error loading grade';
+        });
+    
+    fetch('/user-name')
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                document.querySelector('#names').textContent = data.username.toUpperCase();
+            } else {
+                document.querySelector('#names').textContent = 'NULL';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching name:', error);
+            document.querySelector('#names').textContent = 'Error loading name';
+        });
+});
