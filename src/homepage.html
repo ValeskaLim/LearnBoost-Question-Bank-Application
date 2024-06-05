@@ -8,47 +8,85 @@
     <link href="./output.css" rel="stylesheet">
 </head>
 <body class="m-0 p-0 w-full flex">
-    <div id="menu-box" class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[250px]
+    <!-- Menu background -->
+    <div id="menu-box" class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[150px]
      mt-0 transition-opacity duration-500 transition-transform duration-500 transition-width duration-500">
-        <div class="ml-[25px] mt-[17px]">
+        <!-- Logo LearnBoost -->
+        <div class="ml-[30px] mt-[17px]">
             <div class="w-full items-center flex">
-                <img src="/assets/logo.png" class="w-[80px]">
-                <p class="ml-[18px] left-[10px] text-white text-[20px] font-bold font-mono">LearnBoost</p>
+                <img src="../assets/logo.png" class="w-[80px]">
             </div>
+            <!-- Menu list -->
             <div class="mt-[70px] inline-block w-full">
-                <div class="bg-white rounded-tl-[5px] rounded-bl-[5px] flex ml-[20px] pl-[10px] py-[8px] items-center">
-                    <img src="/assets/home-logo.png" class="invert w-[35px]">
-                    <h3 class="my-0 ml-[15px] font-mono font-bold text-[17px]">Dashboard</h3>
+                <!-- Homepage -->
+                <div class="bg-white rounded-tl-[15px] rounded-bl-[15px] flex py-[8px] items-center">
+                    <img src="../assets/home-logo.png" class="ml-[20px] invert w-[35px]">
                 </div>
-                <div class="w-full flex pl-[20px] items-center transition-colors duration-300">
-                    <a href="kelas.html" class="w-full flex pl-[10px] py-[8px] items-center transition-colors duration-300 no-underline 
-                    hover:bg-white rounded-tl-[5px] rounded-bl-[5px] group">
-                        <img src="/assets/ic_outline-class.png" class="w-[35px] group-hover:invert">
-                        <h3 class="my-0 ml-[15px] font-mono font-bold text-[17px] text-white group-hover:text-black no-underline">Kelas</h3>
+                <!-- Latihan Soal -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="latihan-soal.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/barbel-logo.png" class="ml-[20px] w-[35px] group-hover:invert">
                     </a>
                 </div>
-                <div class="w-full flex pl-[20px] items-center transition-colors duration-300">
-                    <a href="latihan-soal.html" class="w-full flex pl-[10px] py-[8px] items-center transition-colors duration-300 no-underline 
-                    hover:bg-white rounded-tl-[5px] rounded-bl-[5px] group">
-                        <img src="/assets/barbel-logo.png" class="w-[35px] group-hover:invert">
-                        <h3 class="my-0 ml-[15px] font-mono font-bold text-[17px] text-white group-hover:text-black no-underline">Latihan Soal</h3>
+                <!-- Forum -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="forum.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/Forum-Logo.png" class="ml-[20px] w-[35px] group-hover:invert">
                     </a>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Body Content -->
     <div class="w-full pl-[80px] pt-[17px] pr-[40px]">
+        <!-- Navbar -->
         <div class="flex w-full items-center">
             <h1 class="text-[40px] m-0 font-mono flex">Dashboard</h1>
+            <!-- Container profile, name & grade -->
             <div class="flex items-center justify-end text-right w-auto ml-auto">
                 <div class="flex justify-end flex-col">
                     <h2 class="font-serif m-0 font-bold" id="names">Name</h2>
                     <p class="font-serif m-0" id="grade">Loading..</p>
                 </div>
-                <img src="/assets/profile-holoen.jpg" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
+                <img src="../assets/profile-holoen.jpg" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
             </div>
         </div>
         <hr class="mt-[20px]">
+
+        <!-- Perfomra Belajar -->
+        <div class="w-full items-center mt-[50px]">
+            <!-- Container Header performa belajar -->
+            <div class="flex w-full">
+                <h3 class="text-[20px]">Performa Belajar</h3>
+                <div class="justify-end flex ml-auto text-[15px] border border-black py-[5px] px-[20px] rounded-[10px] margin-[2px] font-bold">160 Jam</div>
+            </div>
+            <hr class="mt-[10px]">
+            <!-- Performa belajar body -->
+            <div class="w-full max-w-full bg-slate-600 h-[200px] mt-[20px]">
+                <h1 class="translate-x-[50%] translate-y-[100%]">NO DATA</h1>
+            </div>
+        </div>
+        
+        <!-- Latihan Soal -->
+        <div class="w-full items-center mt-[80px]">
+            <!-- Container header latihan soal -->
+            <div class="flex w-full">
+                <h3 class="text-[20px]">Latihan Soal</h3>
+                <div class="justify-end flex ml-auto text-[15px] border border-black py-[5px] px-[20px] rounded-[10px] margin-[2px] font-bold">10th Grade</div>
+            </div>
+            <hr class="mt-[10px]">
+            <!-- Latihan soal body -->
+            <div class="w-fit flex flex-wrap justify-center mt-[20px]">
+                <img src="../assets/biologi.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
+                <img src="../assets/kimia.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
+                <img src="../assets/fisika.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
+                <img src="../assets/matematika.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
+                <img src="../assets/inggris.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
+            </div>
+
+        </div>
     </div>
     <script src="javascript.js"></script>
 </body>

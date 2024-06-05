@@ -83,11 +83,11 @@ app.post('/auth', (request, response) => {
                     response.redirect('/homepage');
                 });
             } else {
-                response.redirect('/student-login?error=Incorrect%20username%20and%2For%20password');
+                response.redirect('/?error=Incorrect%20username%20and%2For%20password');
             }
         });
     } else {
-        response.redirect('/student-login?error=Please%20enter%20username%20and%20password');
+        response.redirect('/?error=Please%20enter%20username%20and%20password');
     }
 });
 
