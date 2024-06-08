@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnBoost</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="m-0 p-0 w-full flex overflow-x-hidden">
+    <!-- Menu background -->
+    <div id="menu-box" class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[150px]
+     mt-0 transition-opacity duration-500 transition-transform duration-500 transition-width duration-500">
+        <!-- Logo LearnBoost -->
+        <div class="ml-[30px] mt-[17px]">
+            <div class="w-full items-center flex">
+                <img src="../assets/logo.png" class="w-[80px]">
+            </div>
+            <!-- Menu list -->
+            <div class="mt-[70px] inline-block w-full">
+                <!-- Homepage -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="homepage.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/home-logo.png" class="ml-[20px] w-[35px] group-hover:invert">
+                    </a>
+                </div>
+                <!-- Latihan Soal -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="latihan-soal.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/barbel-logo.png" class="ml-[20px] w-[35px] group-hover:invert">
+                    </a>
+                </div>
+                <!-- Forum -->
+                <div class="bg-white rounded-tl-[15px] rounded-bl-[15px] flex py-[8px] items-center">
+                    <img src="../assets/Forum-Logo.png" class="ml-[20px] invert w-[35px]">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Body Content -->
+    <div class="w-full pl-[80px] pt-[17px] pr-[40px]">
+        <!-- Navbar -->
+        <div class="flex w-full items-center">
+            <h1 class="text-[40px] m-0 font-poppins font-bold flex">Forum</h1>
+            <!-- Container profile, name & grade -->
+            <div class="flex items-center justify-end text-right w-auto ml-auto">
+                <div class="flex justify-end flex-col">
+                    <h2 class="font-poppins m-0 font-bold" id="names">Name</h2>
+                    <p class="font-poppins m-0" id="grade">Loading..</p>
+                </div>
+                <img src="../assets/profile.png" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
+            </div>
+        </div>
+        <hr class="mt-[20px]">
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>

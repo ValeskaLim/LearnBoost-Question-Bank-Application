@@ -4,52 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearnBoost</title>
-    <link rel="icon" type="image/x-icon" href="assets/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <link href="./output.css" rel="stylesheet">
 </head>
-<body>
-    <div class="menu-box"  id="menu-box">
-        <div class="content-menu">
-            <div class="logo-menu">
-                <img src="assets/logo.png">
-                <p>LearnBoost</p>
+<body class="m-0 p-0 w-full flex overflow-x-hidden">
+    <!-- Menu background -->
+    <div id="menu-box" class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[150px]
+     mt-0 transition-opacity duration-500 transition-transform duration-500 transition-width duration-500">
+        <!-- Logo LearnBoost -->
+        <div class="ml-[30px] mt-[17px]">
+            <div class="w-full items-center flex">
+                <img src="../assets/logo.png" class="w-[80px]">
             </div>
-            <div class="list-menu">
-                <div class="menu">
-                    <a href="homepage.html">
-                        <img src="assets/home-logo.png">
-                        <h3>Dashboard</h3>
+            <!-- Menu list -->
+            <div class="mt-[70px] inline-block w-full">
+                <!-- Homepage -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="homepage.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/home-logo.png" class="ml-[20px] w-[35px] group-hover:invert">
                     </a>
                 </div>
-                <div class="menu">
-                    <a href="kelas.html">
-                        <img src="assets/ic_outline-class.png">
-                        <h3>Kelas</h3>
-                    </a>
+                <!-- Latihan Soal -->
+                <div class="bg-white rounded-tl-[15px] rounded-bl-[15px] flex py-[8px] items-center">
+                    <img src="../assets/barbel-logo.png" class="ml-[20px] invert w-[35px]">
                 </div>
-                <div class="selected-menu">
-                    <img src="assets/barbel-logo.png">
-                    <h3>Latihan Soal</h3>
-                </div>
-                <div class="menu">
-                    <a href="poin.html">
-                        <img src="assets/gravity-ui_graduation-cap.png">
-                        <h3>Poin</h3>
+                <!-- Forum -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="forum.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline 
+                    hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/Forum-Logo.png" class="ml-[20px] w-[35px] group-hover:invert">
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="content">
-        <div class="profile-box">
-            <div class="profile-container">
-                <h2>Frans Andreas</h2>
-                <p>Students</p>
+    <!-- Body Content -->
+    <div class="w-full pl-[80px] pt-[17px] pr-[40px]">
+        <!-- Navbar -->
+        <div class="flex w-full items-center">
+            <h1 class="text-[40px] m-0 font-poppins font-bold flex">Latihan Soal</h1>
+            <!-- Container profile, name & grade -->
+            <div class="flex items-center justify-end text-right w-auto ml-auto">
+                <div class="flex justify-end flex-col">
+                    <h2 class="font-poppins m-0 font-bold" id="names">Name</h2>
+                    <p class="font-poppins m-0" id="grade">Loading..</p>
+                </div>
+                <img src="../assets/profile.png" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
             </div>
-            <img src="assets/profile-holoen.jpg">
         </div>
-        <div class="upper-content">
-            <h1>Dashboard</h1>
+        <hr class="mt-[20px]">
+
+        <!-- Mata Pelajaran -->
+        <div class="w-fit items-center mt-[50px]">
+            <!-- Container header mata pelajaran -->
+             <div class="w-full flex">
+                <h3 class="text-[20px] font-poppins">Mata Pelajaran</h3>
+                <div class="justify-end flex ml-[60em] text-[15px] border border-black py-[5px] px-[20px] rounded-[10px] m-[2px] font-bold">10th Grade</div>
+             </div>
+             <hr class="mt-[10px]">
+
+             <!-- Mata Pelajaran Container -->
+             <div class="mt-[40px] flex">
+                <!-- Colored Background -->
+                <div class="bg-[#7bdfa3] w-fit rounded-[10px]">
+                    <!-- Main content mata pelajaran -->
+                    <div class="bg-[#f5f5f5] w-fit ml-[20px] rounded-br-[10px] rounded-tr-[10px]">
+                        <!-- Judul mata pelajaran -->
+                        <h2 class="text-center font-poppins m-0 text-[25px]">Biologi</h2>
+                        <!-- Container mata pelajaran body -->
+                        <div class="ml-[20px] mt-[20px] flex">
+                            <img src="../assets/biologi.png" class="w-[90px]">
+                            <!-- Text sebelah kanan -->
+                            <div class="justify-end ml-[20px] mr-[20px]">
+                                <!-- Status main content -->
+                                <div class="flex">
+                                    <p class="text-center">Unit materi<br>latihan:</p>
+                                    <p class="justify-end ml-[30px]">20/30 Unit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
         </div>
     </div>
     <script src="javascript.js"></script>

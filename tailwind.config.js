@@ -10,6 +10,7 @@ module.exports = {
       },
       fontFamily: {
         custom: ['Verdana', 'Geneva', 'Tahoma', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif']
       },
     },
   },

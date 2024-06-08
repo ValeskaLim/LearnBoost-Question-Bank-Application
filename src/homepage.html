@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../assets/logo.png">
     <link href="./output.css" rel="stylesheet">
 </head>
-<body class="m-0 p-0 w-full flex">
+<body class="m-0 p-0 w-full flex overflow-x-hidden">
     <!-- Menu background -->
     <div id="menu-box" class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[150px]
      mt-0 transition-opacity duration-500 transition-transform duration-500 transition-width duration-500">
@@ -43,14 +43,14 @@
     <div class="w-full pl-[80px] pt-[17px] pr-[40px]">
         <!-- Navbar -->
         <div class="flex w-full items-center">
-            <h1 class="text-[40px] m-0 font-mono flex">Dashboard</h1>
+            <h1 class="text-[40px] m-0 font-poppins font-bold flex">Dashboard</h1>
             <!-- Container profile, name & grade -->
             <div class="flex items-center justify-end text-right w-auto ml-auto">
                 <div class="flex justify-end flex-col">
-                    <h2 class="font-serif m-0 font-bold" id="names">Name</h2>
-                    <p class="font-serif m-0" id="grade">Loading..</p>
+                    <h2 class="font-poppins m-0 font-bold" id="names">Name</h2>
+                    <p class="font-poppins m-0" id="grade">Loading..</p>
                 </div>
-                <img src="../assets/profile-holoen.jpg" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
+                <img src="../assets/profile.png" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
             </div>
         </div>
         <hr class="mt-[20px]">
@@ -59,13 +59,13 @@
         <div class="w-full items-center mt-[50px]">
             <!-- Container Header performa belajar -->
             <div class="flex w-full">
-                <h3 class="text-[20px]">Performa Belajar</h3>
-                <div class="justify-end flex ml-auto text-[15px] border border-black py-[5px] px-[20px] rounded-[10px] margin-[2px] font-bold">160 Jam</div>
+                <h3 class="text-[20px] font-poppins">Performa Belajar</h3>
+                <div class="justify-end flex ml-auto text-[15px] border border-black py-[5px] px-[20px] rounded-[10px] m-[2px] font-bold">160 Jam</div>
             </div>
             <hr class="mt-[10px]">
             <!-- Performa belajar body -->
-            <div class="w-full max-w-full bg-slate-600 h-[200px] mt-[20px]">
-                <h1 class="translate-x-[50%] translate-y-[100%]">NO DATA</h1>
+            <div class="w-full bg-slate-600 h-[200px] mt-[20px]">
+                <h1 class="translate-x-[50%] translate-y-[50%]">NO DATA</h1>
             </div>
         </div>
         
@@ -73,17 +73,33 @@
         <div class="w-full items-center mt-[80px]">
             <!-- Container header latihan soal -->
             <div class="flex w-full">
-                <h3 class="text-[20px]">Latihan Soal</h3>
+                <h3 class="text-[20px] font-poppins">Latihan Soal</h3>
                 <div class="justify-end flex ml-auto text-[15px] border border-black py-[5px] px-[20px] rounded-[10px] margin-[2px] font-bold">10th Grade</div>
             </div>
             <hr class="mt-[10px]">
             <!-- Latihan soal body -->
-            <div class="w-fit flex flex-wrap justify-center mt-[20px]">
-                <img src="../assets/biologi.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
-                <img src="../assets/kimia.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
-                <img src="../assets/fisika.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
-                <img src="../assets/matematika.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
-                <img src="../assets/inggris.png" class="w-[100px] mx-[58px] bg-gray-300 bg-cover">
+            <div class="w-full flex flex-wrap justify-between mt-[20px]">
+                <!-- List pelajaran container -->
+                <div class="block text-center bg-[#f8f4f4]">
+                    <img src="../assets/biologi.png" class="w-[160px]  p-[15px]">
+                    <p class="mt-[10px] font-poppins">Biologi</p>
+                </div>
+                <div class="block text-center bg-[#f8f4f4]">
+                    <img src="../assets/kimia.png" class="w-[160px] p-[15px]">
+                    <p class="mt-[10px] font-poppins">Kimia</p>
+                </div>
+                <div class="block text-center bg-[#f8f4f4]">
+                    <img src="../assets/fisika.png" class="w-[160px]  p-[15px]">
+                    <p class="mt-[10px] font-poppins">Fisika</p>
+                </div>
+                <div class="block text-center bg-[#f8f4f4]">
+                    <img src="../assets/matematika.png" class="w-[160px]  p-[15px]">
+                    <p class="mt-[10px] font-poppins">Math</p>
+                </div>
+                <div class="block text-center bg-[#f8f4f4]">
+                    <img src="../assets/inggris.png" class="w-[160px]  p-[15px]">
+                    <p class="mt-[10px] font-poppins">English</p>
+                </div>
             </div>
 
         </div>
