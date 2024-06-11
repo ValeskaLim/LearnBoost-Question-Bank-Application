@@ -6,6 +6,7 @@
     <title>LearnBoost</title>
     <link rel="icon" type="image/x-icon" href="assets/logo.png">
     <link href="./output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="m-0 p-0 w-full flex overflow-x-hidden">
     <!-- Menu background -->
@@ -41,9 +42,11 @@
     </div>
     <!-- Body Content -->
     <div class="w-full pl-[80px] pt-[17px] pr-[40px]">
+
         <!-- Navbar -->
         <div class="flex w-full items-center">
-            <h1 class="text-[40px] m-0 font-poppins font-bold flex">Forum</h1>
+            <h1 class="text-[40px] mr-10 font-poppins font-bold flex">Forum</h1>
+            <input type="text" placeholder="Cari pertanyaan dan jawaban" class="border border-gray-300 rounded-md p-2 w-1/2">
             <!-- Container profile, name & grade -->
             <div class="flex items-center justify-end text-right w-auto ml-auto">
                 <div class="flex justify-end flex-col">
@@ -52,8 +55,31 @@
                 </div>
                 <img src="../assets/profile.png" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
             </div>
+
         </div>
         <hr class="mt-[20px]">
+
+        <section class="flex flex-col items-center space-y-8">
+            <h1 class="text-3xl font-bold text-gray-800 mt-5">Punya Pertanyaan? Ajukan Disini!</h1>
+            <button class="bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800">Tanya Disini</button>
+            <div class="w-4/5 border-t border-gray-300 pt-4">
+                <div class="flex flex-col mb-4">
+                    <span class="font-bold text-gray-800">Valeska Valentine</span>
+                    <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce orci?</p>
+                    <button class="self-end bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800">Answer</button>
+                </div>
+                <div class="flex flex-col mb-4">
+                    <span class="font-bold text-gray-800">John Doe</span>
+                    <p class="text-gray-600 mb-4">Curabitur gravida arcu ac tortor dignissim convallis. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare.</p>
+                    <button class="self-end bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800">Answer</button>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-800">Jane Smith</span>
+                    <p class="text-gray-600 mb-4">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <button class="self-end bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800">Answer</button>
+                </div>
+            </div>
+        </section>
     </div>
     <script src="javascript.js"></script>
 </body>
