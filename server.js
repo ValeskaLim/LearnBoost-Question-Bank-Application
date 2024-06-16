@@ -133,6 +133,14 @@ app.get('/homepage', isAuthenticated, (request, response) => {
     response.sendFile(path.join(__dirname, 'src/homepage.html'));
 });
 
+app.get('/latihan-soal', isAuthenticated, (request, response) =>{
+    response.sendFile(path.join(__dirname, 'src/latihan-soal.html'));
+});
+
+app.get('/forum', isAuthenticated, (request, response) =>{
+    response.sendFile(path.join(__dirname, 'src/forum.html'));
+});
+
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
