@@ -47,3 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#names').textContent = 'Error loading name';
         });
 });
+
+
+function toggleDropdown(menuId) {
+    const dropdownMenu = document.getElementById(menuId);
+    dropdownMenu.classList.toggle('hidden');
+}

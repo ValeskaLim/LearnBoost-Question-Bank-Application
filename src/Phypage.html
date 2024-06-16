@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnBoost</title>
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="m-0 p-0 w-full flex ">
+    <!-- Menu background -->
+    <div id="menu-box"
+        class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[150px] mt-0 transition-opacity duration-500 transition-transform duration-500 transition-width duration-500 fixed">
+        <!-- Logo LearnBoost -->
+        <div class="ml-[30px] mt-[17px]">
+            <div class="w-full items-center flex">
+                <img src="../assets/logo.png" class="w-[80px]">
+            </div>
+            <!-- Menu list -->
+            <div class="mt-[70px] inline-block w-full">
+                <!-- Homepage -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="./homepage.html"
+                        class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/home-logo.png" class="ml-[20px] w-[35px] group-hover:invert">
+                    </a>
+                </div>
+                <!-- Latihan Soal -->
+                <div class="bg-white rounded-tl-[15px] rounded-bl-[15px] flex py-[8px] items-center">
+                    <img src="../assets/barbel-logo.png" class="ml-[20px] invert w-[35px]">
+                </div>
+                <!-- Forum -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="./forum.html"
+                        class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/Forum-Logo.png" class="ml-[20px] w-[35px] group-hover:invert">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Body Content -->
+    <div class="w-full pl-[220px] pt-[17px] pr-[40px]">
+        <!-- Navbar -->
+        <div class="flex w-full items-center bg-white sticky top-0 z-30">
+            <a href="./latihan-soal.html">
+                <div class="flex text-[15px] py-[10px] px-[20px] rounded-[10px] font-bold">
+                    <img src="../assets/arrow-left-svgrepo-com.svg" alt="" class="w-[35px]">
+                </div>
+            </a>
+            <img src="../assets/fisika.png" alt="logo biologi" class="ml-[20px] w-[35px]">
+            <h1 class="text-[40px] m-0 font-poppins font-bold flex">Fisika</h1>
+            <!-- Container profile, name & grade -->
+            <div class="flex items-center justify-end text-right w-auto ml-auto">
+                <div class="flex justify-end flex-col">
+                    <h2 class="font-poppins m-0 font-bold" id="names">Name</h2>
+                    <p class="font-poppins m-0" id="grade">Loading..</p>
+                </div>
+                <img src="../assets/profile.png"
+                    class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
+            </div>
+        </div>
+        <hr class="mt-[20px]">
+        <!-- Mata Pelajaran -->
+        <div class="w-full items-center mt-[50px] flex">
+            <div class="w-full items-center">
+                <!-- Container header mata pelajaran -->
+                <div class="w-full flex items-center justify-between">
+                    <h2 class="text-[20px] font-poppins text-gray-800">Materi</h2>
+                </div>
+                <hr class="mt-[20px]">
+                <main class="p-8">
+                    <section>
+                        <div class="grid grid-cols-1 gap-4 mb-8">
+                            <!-- Subject Cards -->
+                            <!-- Div 1 -->
+                            <div class="bg-white border border-gray-300 rounded-lg p-2 flex items-center justify-between cursor-pointer" onclick="toggleDropdown('menu_1')">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-500 w-2 h-10"></div>
+                                    <h3 class="text-xl font-bold">Gerak Lurus</h3>
+                                </div>
+                                <img src="../assets/arrow-down-icon.png" alt="dropdown" class="dropdown-icon w-10">
+                            </div>
+                        
+                            <!-- Dropdown Menu 1 -->
+                            <div id="menu_1" class="dropdown-menu hidden flex flex-col bg-white border border-gray-300 rounded-lg mt-1 shadow-lg">
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 1</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 2</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 3</a>
+                            </div>
+
+                            <!-- Div 2 -->
+                            <div class="bg-white border border-gray-300 rounded-lg p-2 flex items-center justify-between cursor-pointer" onclick="toggleDropdown('menu_2')">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-500 w-2 h-10"></div>
+                                    <h3 class="text-xl font-bold">Parabola</h3>
+                                </div>
+                                <img src="../assets/arrow-down-icon.png" alt="dropdown" class="dropdown-icon w-10">
+                            </div>
+                        
+                            <!-- Dropdown Menu 2 -->
+                            <div id="menu_2" class="dropdown-menu hidden flex flex-col bg-white border border-gray-300 rounded-lg mt-1 shadow-lg">
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 1</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 2</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 3</a>
+                            </div>
+
+                            <!-- Div 3 -->
+                            <div class="bg-white border border-gray-300 rounded-lg p-2 flex items-center justify-between cursor-pointer" onclick="toggleDropdown('menu_3')">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-500 w-2 h-10"></div>
+                                    <h3 class="text-xl font-bold">Hukum Newton tentang Gravitas</h3>
+                                </div>
+                                <img src="../assets/arrow-down-icon.png" alt="dropdown" class="dropdown-icon w-10">
+                            </div>
+                        
+                            <!-- Dropdown Menu 3 -->
+                            <div id="menu_3" class="dropdown-menu hidden flex flex-col bg-white border border-gray-300 rounded-lg mt-1 shadow-lg">
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 1</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 2</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 3</a>
+                            </div>
+
+                            <!-- Div 4 -->
+                            <div class="bg-white border border-gray-300 rounded-lg p-2 flex items-center justify-between cursor-pointer" onclick="toggleDropdown('menu_4')">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-500 w-2 h-10"></div>
+                                    <h3 class="text-xl font-bold">Momentum</h3>
+                                </div>
+                                <img src="../assets/arrow-down-icon.png" alt="dropdown" class="dropdown-icon w-10">
+                            </div>
+                        
+                            <!-- Dropdown Menu 4 -->
+                            <div id="menu_4" class="dropdown-menu hidden flex flex-col bg-white border border-gray-300 rounded-lg mt-1 shadow-lg">
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 1</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 2</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 3</a>
+                            </div>
+
+                            <!-- Div 5 -->
+                            <div class="bg-white border border-gray-300 rounded-lg p-2 flex items-center justify-between cursor-pointer" onclick="toggleDropdown('menu_5')">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-500 w-2 h-10"></div>
+                                    <h3 class="text-xl font-bold">Getaran Harmonis</h3>
+                                </div>
+                                <img src="../assets/arrow-down-icon.png" alt="dropdown" class="dropdown-icon w-10">
+                            </div>
+                        
+                            <!-- Dropdown Menu 5 -->
+                            <div id="menu_5" class="dropdown-menu hidden flex flex-col bg-white border border-gray-300 rounded-lg mt-1 shadow-lg">
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 1</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 2</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100">Latihan 3</a>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            <div class="w-fit flex flex-col justify-end ml-[2em]">
+                <!-- Statistic -->
+                <div class="bg-white border border-gray-300 rounded-lg p-4 text-center w-[20em]">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Statistik</h3>
+                        <div class="flex items-center justify-center">
+                            <div class="relative">
+                                <svg class="w-32 h-32 text-green-500" viewBox="0 0 36 36">
+                                    <path class="text-gray-300"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        fill="none" stroke-width="2" stroke="currentColor" />
+                                    <path class="text-green-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831"
+                                        fill="none" stroke-width="2" stroke="currentColor" stroke-dasharray="85, 100" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center text-2xl font-bold z-10">85
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-2 text-lg">Average Score</p>
+                    </div>
+                </div>
+                <!-- Challenge -->
+                <div class="bg-white border border-gray-300 rounded-lg p-4 text-center w-[20em] mt-[90px]">
+                    <h3 class="text-xl font-bold mb-4">Challenge</h3>
+                    <div class="flex items-center justify-center space-x-2">
+                        <button
+                            class="bg-blue-700 text-white rounded-full h-10 w-10 flex items-center justify-center">←</button>
+                        <button
+                            class="bg-blue-700 text-white rounded-full h-10 w-10 flex items-center justify-center">→</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+
+</html>
