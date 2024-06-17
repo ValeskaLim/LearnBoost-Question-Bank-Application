@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnBoost</title>
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="m-0 p-0 w-full flex overflow-x-hidden">
+    <!-- Menu background -->
+    <div id="menu-box" class="bg-[#305cd4] w-fit overflow-hidden min-h-[100vh] min-w-[150px] mt-0 transition-opacity duration-500 transition-transform duration-500 transition-width duration-500 fixed">
+        <!-- Logo LearnBoost -->
+        <div class="ml-[30px] mt-[17px]">
+            <div class="w-full items-center flex">
+                <img src="../assets/logo.png" class="w-[80px]">
+            </div>
+            <!-- Menu list -->
+            <div class="mt-[70px] inline-block w-full">
+                <!-- Homepage -->
+                <div class="bg-white rounded-tl-[15px] rounded-bl-[15px] flex py-[8px] items-center">
+                    <img src="../assets/home-logo.png" class="ml-[20px] invert w-[35px]">
+                </div>
+                <!-- Latihan Soal -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="./latihan-soal.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/barbel-logo.png" class="ml-[20px] w-[35px] group-hover:invert">
+                    </a>
+                </div>
+                <!-- Forum -->
+                <div class="w-full flex items-center transition-colors duration-300">
+                    <a href="./forum.html" class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
+                        <img src="../assets/Forum-Logo.png" class="ml-[20px] w-[35px] group-hover:invert">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Body Content -->
+    <div class="w-full pl-[220px] pt-[17px] pr-[40px]">
+        <!-- Navbar -->
+        <div class="flex w-full items-center bg-white sticky top-0 z-30">
+            <h1 class="text-[40px] m-0 font-poppins font-bold flex">Protista</h1>
+            <!-- Container profile, name & grade -->
+            <div class="flex items-center justify-end text-right w-auto ml-auto">
+                <div class="flex justify-end flex-col">
+                    <h2 class="font-poppins m-0 font-bold" id="names">Name</h2>
+                    <p class="font-poppins m-0" id="grade">Loading..</p>
+                </div>
+                <img src="../assets/profile.png" class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
+            </div>
+        </div>
+        <hr class="mt-[20px]">
+        <div class="container mx-auto p-4">
+            <form id="questionForm" method="get" class="space-y-4" action="/questions">
+                <input type="hidden" id="subchapterName" name="subchapter_name" value="Protista">
+                <div class="flex flex-col" id="questionContainer">
+                    <label id="questionLabel" class="w-fit"></label>
+                    <div id="optionsContainer" class="flex flex-col space-y-2">
+                        <div>
+                            <input type="radio" id="option1" name="answer" value="1" class="mr-2">
+                            <label for="option1" id="option1Label"></label>
+                        </div>
+                        <div>
+                            <input type="radio" id="option2" name="answer" value="2" class="mr-2">
+                            <label for="option2" id="option2Label"></label>
+                        </div>
+                        <div>
+                            <input type="radio" id="option3" name="answer" value="3" class="mr-2">
+                            <label for="option3" id="option3Label"></label>
+                        </div>
+                        <div>
+                            <input type="radio" id="option4" name="answer" value="4" class="mr-2">
+                            <label for="option4" id="option4Label"></label>
+                        </div>
+                    </div>
+                </div>
+                <div id="errorContainer" class="hidden error text-red-500">Incorrect answer. Please try again.</div>
+                <div class="flex justify-between mt-4">
+                    <button type="button" id="prevButton" class="bg-gray-600 text-white px-4 py-2 rounded-md hidden" onclick="prevQuestion()">Previous</button>
+                    <button type="button" id="nextButton" class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="nextQuestion()">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>

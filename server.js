@@ -2,6 +2,7 @@ const mysql = require('mysql');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const { request } = require('http');
 
 const con = mysql.createConnection({
     host: "localhost",
@@ -42,18 +43,7 @@ function isAuthenticated(request, response, next) {
     }
 }
 
-// Middleware to protect specific static files
-function protectStaticFiles(request, response, next) {
-    const protectedFiles = ['/homepage.html'];
-    if (protectedFiles.includes(request.path)) {
-        isAuthenticated(request, response, next);
-    } else {
-        next();
-    }
-}
-
 // Serve static files with protection for specific files
-app.use(protectStaticFiles);
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.get('/', (request, response) => {
@@ -94,10 +84,10 @@ app.post('/auth', (request, response) => {
 app.get('/user-grade', isAuthenticated, (request, response) => {
     const username = request.session.username;
     con.query('SELECT grade FROM user WHERE username = ?', [username], (error, results) => {
-        if(error){
+        if (error) {
             return response.status(500).json({ error: 'Database query error' });
         }
-        if(results.length > 0){
+        if (results.length > 0) {
             return response.status(404).json({ grade: results[0].grade });
         } else {
             return response.status(404).json({ error: 'User not found' });
@@ -108,10 +98,10 @@ app.get('/user-grade', isAuthenticated, (request, response) => {
 app.get('/user-name', isAuthenticated, (request, response) => {
     const username = request.session.username;
     con.query('SELECT username FROM user WHERE username = ?', [username], (error, results) => {
-        if(error){
+        if (error) {
             return response.status(500).json({ error: 'Database query error' });
         }
-        if(results.length > 0){
+        if (results.length > 0) {
             return response.status(404).json({ username: results[0].username });
         } else {
             return response.status(404).json({ error: 'User not found' });
@@ -124,7 +114,7 @@ function isAuthenticated(request, response, next) {
     if (request.session.loggedin) {
         next();
     } else {
-            response.redirect('/');
+        response.redirect('/');
     }
 }
 
@@ -133,12 +123,92 @@ app.get('/homepage', isAuthenticated, (request, response) => {
     response.sendFile(path.join(__dirname, 'src/homepage.html'));
 });
 
-app.get('/latihan-soal', isAuthenticated, (request, response) =>{
+app.get('/latihan-soal', isAuthenticated, (request, response) => {
     response.sendFile(path.join(__dirname, 'src/latihan-soal.html'));
 });
 
-app.get('/forum', isAuthenticated, (request, response) =>{
+app.get('/forum', isAuthenticated, (request, response) => {
     response.sendFile(path.join(__dirname, 'src/forum.html'));
+});
+
+app.get('/latihan-protista-1', isAuthenticated, (request, response) => {
+    response.sendFile(path.join(__dirname, 'src/latihan_protista_1.html'));
+});
+
+app.get('/latihan-protista-2', isAuthenticated, (request, response) => {
+    response.sendFile(path.join(__dirname, 'src/latihan_protista_2.html'));
+});
+
+app.get('/BioPage', isAuthenticated, (request, response) => {
+    response.sendFile(path.join(__dirname, 'src/Biopage.html'));
+});
+app.get('/questions', (request, response) => {
+    const subchapterName = request.query.subchapter_name;
+    console.log('Received subchapter_name:', subchapterName); // Log subchapter name
+    if (!subchapterName) {
+        return response.status(400).send('subchapter_name is required');
+    }
+    const query = `
+        SELECT q.question_id, q.question_text, o.option_id, o.option_text, s.subject_name 
+        FROM questions q 
+        JOIN options o ON q.question_id = o.question_id 
+        JOIN subjects s ON q.subject_id = s.subject_id 
+        WHERE s.subchapter_name = ? 
+        ORDER BY q.question_id, o.option_id`;
+
+    con.query(query, [subchapterName], (err, results) => {
+        if (err) {
+            console.error('Error fetching questions:', err);
+            return response.status(500).send('Error fetching questions');
+        }
+
+        console.log('Query Results:', results); // Log query results
+
+        const questionsMap = {};
+        results.forEach(row => {
+            if (!questionsMap[row.question_id]) {
+                questionsMap[row.question_id] = {
+                    question_id: row.question_id,
+                    question_text: row.question_text,
+                    options: []
+                };
+            }
+            questionsMap[row.question_id].options.push({
+                option_id: row.option_id,
+                option_text: row.option_text
+            });
+        });
+
+        const questions = Object.values(questionsMap);
+        console.log('Formatted Questions:', questions); // Log formatted questions
+        response.json(questions);
+    });
+});
+
+app.use(express.json());
+
+app.post('/check-answer', (request, response) => {
+    const { question_id, selected_option_id } = request.body;
+    const query = `
+        SELECT correct_option_id 
+        FROM answers 
+        WHERE question_id = ?
+    `;
+    con.query(query, [question_id], (err, results) => {
+        if (err) {
+            console.error('Error checking answer:', err);
+            response.status(500).send('Error checking answer');
+            return;
+        }
+
+        if (results.length === 0) {
+            result.status(404).send('Question not found');
+            return;
+        }
+
+        const correct = results[0].correct_option_id === selected_option_id;
+        response.json({ correct });
+    });
 });
 
 app.listen(3000, () => {
