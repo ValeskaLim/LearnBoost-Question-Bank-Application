@@ -10,12 +10,12 @@ cd C:\xampp\htdocs
 
 2. Clone this repository
 ```
-git clone https://github.com/ValeskaLim/lms-website.git
+https://github.com/ValeskaLim/LearnBoost-Question-Bank-Application.git
 ```
 
 3. Navigate to the project directory
 ```
-cd lms-website
+cd LearnBoost-Question-Bank-Application
 ```
 
 5. Install Node.js dependencies
