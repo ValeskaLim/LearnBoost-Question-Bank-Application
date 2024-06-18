@@ -9,28 +9,34 @@
 </head>
 <body class="h-screen w-screen">
     <script src="validation.js"></script>
-    <div class="bg-custom-bg-1 text-center w-fit h-[29em] m-0 border border-gray-300 absolute 
+    <div class="bg-custom-bg-1 text-center w-fit h-[45em] m-0 border border-gray-300 absolute 
     top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <div class="bg-white h-[93%] w-[30em]">
             <div class="bg-custom-bg-2 w-auto h-[5em] flex justify-center items-center">
                 <h1 class="m-0 font-sans uppercase text-[27px] text-white">LearnBoost</h1>
             </div>
             <div class="w-auto h-[4em] flex justify-center items-center border border-solid border-gray-300">
-                <h1 class="m-0 uppercase text-[20px]">Student</h1>
+                <h1 class="m-0 uppercase text-[20px]">Create Account</h1>
             </div>
             <div class="mt-[40px] mx-[30px] mb-[20px] text-left relative">
-                <form name="loginForm" onsubmit="return validationLogin()" action="/auth" method="post">
+                <form name="registerForm" onsubmit="return validationRegister()" action="/regist" method="post">
                     <input type="hidden" name="userType" value="student">
                     <input type="text" id="username" name="username" placeholder="Username" class="mt-[20px] mb-[50px] rounded-5 w-full
                     block h-[30px] text-[15px] box-border pl-[20px]">
+                    <input type="email" id="email" name="email" placeholder="Email" class="mt-[20px] mb-[50px] rounded-5 w-full
+                    block h-[30px] text-[15px] box-border pl-[20px]">
                     <input type="password" id="password" name="password" placeholder="Password" class="mt-[20px] mb-[50px] rounded-5 w-full
                     block h-[30px] text-[15px] box-border pl-[20px]">
-                    <input type="submit" value="LOGIN" class="mt-[37px] rounded-[5px] w-full block h-[55px] text-[20px] box-border text-center 
+                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" class="mt-[20px] mb-[50px] rounded-5 w-full
+                    block h-[30px] text-[15px] box-border pl-[20px]">
+                    <input type="number" id="grade" name="grade" placeholder="Your grade (10, 11, etc)" class="mt-[20px] mb-[50px] rounded-5 w-full
+                    block h-[30px] text-[15px] box-border pl-[20px]">
+                    <input type="submit" value="REGISTER" class="mt-[37px] rounded-[5px] w-full block h-[55px] text-[20px] box-border text-center 
                      text-white bg-submit-btn font-bold">
                 </form>
                 <div class="text-center flex justify-center">
-                    <p>Don't have account?</p>
-                    <a href="/register" class="text-blue-500 underline underline-offset-1">create here</a>
+                    <p>Already have account?</p>
+                    <a href="/" class="text-blue-500 underline underline-offset-1">login here</a>
                 </div>
             </div>
         </div>

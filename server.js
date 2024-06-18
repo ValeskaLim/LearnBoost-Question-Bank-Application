@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const { request } = require('http');
+const latihan_soal = require("./routes/latihan_soal");
 
 const con = mysql.createConnection({
     host: "localhost",
@@ -23,6 +24,7 @@ app.use(session({
     resave: true,
     saveUninitialized: false
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,12 +48,41 @@ function isAuthenticated(request, response, next) {
 // Serve static files with protection for specific files
 app.use(express.static(path.join(__dirname, 'src')));
 
+app.get('/login', (request, response) => {
+    response.sendFile(path.join(__dirname, 'src/loginstudent.html'));
+});
+
 app.get('/', (request, response) => {
     response.sendFile(path.join(__dirname, 'src/loginstudent.html'));
 });
 
+app.get('/register', (request, response) => {
+    response.sendFile(path.join(__dirname, 'src/register.html'));
+});
+
 app.get('/admin-login', (request, response) => {
     response.sendFile(path.join(__dirname, 'src/loginteacher.html'));
+});
+
+app.post('/regist', (request, response) =>{
+    let username = request.body.username;
+    let password = request.body.password;
+    let email = request.body.email;
+    let grades = request.body.grade;
+
+    if(username && password && grades && email){
+        con.query('INSERT INTO user(username, password, email, grade) VALUES (?, ?, ?, ?)', [username, password, email, grades], (error, results, fields) =>{
+            if(error) throw error;
+            if(results.affectedRows > 0){
+                response.redirect('/login');
+            }
+            else{
+                response.redirect('/register?error=Incorrect%20username%20and%2For%20password');
+            }
+        });
+    } else {
+        response.redirect('/register?error=Please%20fill%20data');
+    }
 });
 
 app.post('/auth', (request, response) => {
@@ -123,25 +154,16 @@ app.get('/homepage', isAuthenticated, (request, response) => {
     response.sendFile(path.join(__dirname, 'src/homepage.html'));
 });
 
-app.get('/latihan-soal', isAuthenticated, (request, response) => {
-    response.sendFile(path.join(__dirname, 'src/latihan-soal.html'));
-});
+// app.get('/latihan_soal', latihan_soal, (request, response) => {
+//     response.sendFile(path.join(__dirname, 'src/latihan-soal.html'));
+// });
+
+app.use('/latihan_soal', isAuthenticated, latihan_soal);
 
 app.get('/forum', isAuthenticated, (request, response) => {
     response.sendFile(path.join(__dirname, 'src/forum.html'));
 });
 
-app.get('/latihan-protista-1', isAuthenticated, (request, response) => {
-    response.sendFile(path.join(__dirname, 'src/latihan_protista_1.html'));
-});
-
-app.get('/latihan-protista-2', isAuthenticated, (request, response) => {
-    response.sendFile(path.join(__dirname, 'src/latihan_protista_2.html'));
-});
-
-app.get('/BioPage', isAuthenticated, (request, response) => {
-    response.sendFile(path.join(__dirname, 'src/Biopage.html'));
-});
 app.get('/questions', (request, response) => {
     const subchapterName = request.query.subchapter_name;
     console.log('Received subchapter_name:', subchapterName); // Log subchapter name

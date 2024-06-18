@@ -22,7 +22,7 @@
             <div class="mt-[70px] inline-block w-full">
                 <!-- Homepage -->
                 <div class="w-full flex items-center transition-colors duration-300">
-                    <a href="./homepage.html"
+                    <a href="/homepage"
                         class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
                         <img src="../assets/home-logo.png" class="ml-[20px] w-[35px] group-hover:invert">
                     </a>
@@ -33,7 +33,7 @@
                 </div>
                 <!-- Forum -->
                 <div class="w-full flex items-center transition-colors duration-300">
-                    <a href="./forum.html"
+                    <a href="/forum"
                         class="w-full flex py-[8px] items-center transition-colors duration-300 no-underline hover:bg-white rounded-tl-[15px] rounded-bl-[15px] group">
                         <img src="../assets/Forum-Logo.png" class="ml-[20px] w-[35px] group-hover:invert">
                     </a>
@@ -50,7 +50,7 @@
             <div class="flex items-center justify-end text-right w-auto ml-auto">
                 <div class="flex justify-end flex-col">
                     <h2 class="font-poppins m-0 font-bold" id="names">Name</h2>
-                    <p class="font-poppins m-0" id="grade">Loading..</p>
+                    <p class="font-poppins m-0" id="navbar-grade">Loading..</p>
                 </div>
                 <img src="../assets/profile.png"
                     class="ml-[10px] w-[60px] h[60px] rounded-[50%] object-cover border-0 border-solid border-[#000000]">
@@ -63,7 +63,7 @@
                 <!-- Container header mata pelajaran -->
                 <div class="w-full flex items-center justify-between">
                     <h2 class="text-[20px] font-poppins text-gray-800">Mata Pelajaran</h2>
-                    <div class="flex text-[15px] border border-black py-[10px] px-[20px] rounded-[10px] font-bold">
+                    <div class="flex text-[15px] border border-black py-[10px] px-[20px] rounded-[10px] font-bold" id="body-grade">
                         10th Grade
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     <section>
                         <div class="grid grid-cols-2 gap-4 mb-8">
                             <!-- Subject Cards -->
-                            <a href="/BioPage">
+                            <a href="/latihan_soal/Biopage">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-green-500 w-2 h-16"></div>
                                     <div>
@@ -82,7 +82,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="./Chempage.html">
+                            <a href="/latihan_soal/Chempage">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-red-500 w-2 h-16"></div>
                                     <div>
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="./Phypage.html">
+                            <a href="/latihan_soal/Phypage">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-blue-500 w-2 h-16"></div>
                                     <div>
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="./Mathpage.html">
+                            <a href="/latihan_soal/Mathpage">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-purple-500 w-2 h-16"></div>
                                     <div>
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="./Engpage.html">
+                            <a href="/latihan_soal/Engpage">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-yellow-500 w-2 h-16"></div>
                                     <div>
@@ -131,17 +131,14 @@
                 <div class="bg-white border border-gray-300 rounded-lg p-4 text-center w-[20em]">
                     <div>
                         <h3 class="text-xl font-bold mb-4">Statistik</h3>
-                        <div class="flex items-center justify-center">
+                        <!-- Progress bar -->
+                        <div class="flex justify-center items-center h-fit">
                             <div class="relative">
-                                <svg class="w-32 h-32 text-green-500" viewBox="0 0 36 36">
-                                    <path class="text-gray-300"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                                        fill="none" stroke-width="2" stroke="currentColor" />
-                                    <path class="text-green-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831"
-                                        fill="none" stroke-width="2" stroke="currentColor" stroke-dasharray="85, 100" />
+                                <svg class="w-[150px] h-[150px]">
+                                    <circle cx="75" cy="75" r="60" stroke="#d3d3d3" stroke-width="10" fill="none" />
+                                    <circle cx="75" cy="75" r="60" stroke="#00ff00" stroke-width="10" fill="none" stroke-linecap="round" class="progress-circle" style="stroke-dasharray: 377; stroke-dashoffset: 131.95;" />
                                 </svg>
-                                <div class="absolute inset-0 flex items-center justify-center text-2xl font-bold z-10">85
-                                </div>
+                                <div class="absolute inset-0 flex items-center justify-center text-2xl font-bold z-10" id="progress-value">40%</div>
                             </div>
                         </div>
                         <p class="mt-2 text-lg">Average Score</p>

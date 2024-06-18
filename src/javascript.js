@@ -22,9 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             if (data.grade) {
-                document.querySelector('#grade').textContent = data.grade + 'th Grade';
+                document.querySelector('#navbar-grade').textContent = data.grade + 'th Grade';
+                document.querySelector('#body-grade').textContent = data.grade + 'th Grade';
             } else {
-                document.querySelector('#grade').textContent = 'NULL';
+                document.querySelector('#navbar-grade').textContent = 'NULL';
+                document.querySelector('#body-grade').textContent = 'NULL';
             }
         })
         .catch(error => {
@@ -46,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('#names').textContent = 'Error loading name';
         });
 
+    updateProgressCircle();
     fetchQuestions();  // Fetch questions when DOM content is loaded
 });
 
@@ -87,7 +90,7 @@ function displayQuestion() {
     document.querySelectorAll('input[name="answer"]').forEach(radio => radio.checked = false);
 
     document.getElementById('prevButton').classList.toggle('hidden', currentQuestionIndex === 0);
-    document.getElementById('nextButton').textContent = currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next';
+    document.getElementById('nextButton').textContent = currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next';
     document.getElementById('errorContainer').classList.add('hidden');
 }
 
@@ -115,11 +118,15 @@ async function nextQuestion() {
             currentQuestionIndex++;
             displayQuestion();
         } else {
-            document.getElementById('questionForm').submit();
+            finishQuiz();
         }
     } else {
         document.getElementById('errorContainer').classList.remove('hidden');
     }
+}
+
+function finishQuiz() {
+    window.location.href = '/latihan_soal/Biopage';
 }
 
 function prevQuestion() {
@@ -129,6 +136,31 @@ function prevQuestion() {
     }
 }
 
+function updateProgressCircle() {
+    const progressValueElement = document.getElementById('progress-value');
+    const progressCircle = document.querySelector('.progress-circle');
+    const progressPercentage = parseInt(progressValueElement.textContent);
+
+    const radius = 60; // Radius of the circle
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (progressPercentage / 100) * circumference;
+
+    progressCircle.style.strokeDasharray = circumference;
+    progressCircle.style.strokeDashoffset = offset;
+    progressCircle.style.transform = 'rotate(-90deg)'; // Rotate the circle to start from the top
+    progressCircle.style.transformOrigin = '50% 50%'; // Set the origin of the transformation to the center
+}
+
+function updateProgressBars() {
+    const progressElements = document.querySelectorAll('.progress-bar');
+    progressElements.forEach((progressElement) => {
+        const progressValueElement = progressElement.nextElementSibling;
+        const progressPercentage = parseInt(progressValueElement.textContent);
+        progressElement.style.width = progressPercentage + '%';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    updateProgressBars();
     fetchQuestions();
 });
