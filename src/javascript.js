@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     updateProgressCircle();
-    fetchQuestions();  // Fetch questions when DOM content is loaded
+    fetchQuestions();
 });
 
 function toggleDropdown(menuId) {
@@ -62,11 +62,11 @@ let currentQuestionIndex = 0;
 
 async function fetchQuestions() {
     const subchapterName = document.getElementById('subchapterName').value;
-    console.log('Subchapter Name:', subchapterName); // Log subchapter name
+    console.log('Subchapter Name:', subchapterName);
     const response = await fetch(`/questions?subchapter_name=${encodeURIComponent(subchapterName)}`);
     if (response.ok) {
         questions = await response.json();
-        console.log('Fetched Questions:', questions); // Log fetched questions
+        console.log('Fetched Questions:', questions);
         displayQuestion();
     } else {
         console.error('Error fetching questions');
@@ -80,7 +80,7 @@ function displayQuestion() {
     }
 
     const question = questions[currentQuestionIndex];
-    console.log('Displaying Question:', question); // Log current question
+    console.log('Displaying Question:', question);
 
     document.getElementById('questionLabel').textContent = question.question_text;
     question.options.forEach((option, index) => {
@@ -128,7 +128,7 @@ async function nextQuestion() {
 }
 
 function finishQuiz() {
-    window.location.href = '/latihan_soal/Biopage';
+    window.location.href = '/latihan_soal';
 }
 
 function prevQuestion() {
@@ -143,14 +143,14 @@ function updateProgressCircle() {
     const progressCircle = document.querySelector('.progress-circle');
     const progressPercentage = parseInt(progressValueElement.textContent);
 
-    const radius = 60; // Radius of the circle
+    const radius = 60;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (progressPercentage / 100) * circumference;
 
     progressCircle.style.strokeDasharray = circumference;
     progressCircle.style.strokeDashoffset = offset;
-    progressCircle.style.transform = 'rotate(-90deg)'; // Rotate the circle to start from the top
-    progressCircle.style.transformOrigin = '50% 50%'; // Set the origin of the transformation to the center
+    progressCircle.style.transform = 'rotate(-90deg)';
+    progressCircle.style.transformOrigin = '50% 50%';
 }
 
 function updateProgressBars() {

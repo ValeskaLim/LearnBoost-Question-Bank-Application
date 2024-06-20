@@ -35,17 +35,10 @@ function isAuthenticated(request, response, next) {
     if (request.session.loggedin) {
         next();
     } else {
-        const userType = request.session.userType;
-        if (userType === 'student')
-            response.redirect('/student-login');
-        else if (userType === 'teacher')
-            response.redirect('/teacher-login');
-        else
-            response.redirect('/');
+        response.redirect('/login');
     }
 }
 
-// Serve static files with protection for specific files
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.get('/login', (request, response) => {
@@ -140,7 +133,6 @@ app.get('/user-name', isAuthenticated, (request, response) => {
     });
 });
 
-// Middleware to check if the user is logged in
 function isAuthenticated(request, response, next) {
     if (request.session.loggedin) {
         next();
@@ -149,14 +141,9 @@ function isAuthenticated(request, response, next) {
     }
 }
 
-// Use the isAuthenticated middleware in the /homepage route
 app.get('/homepage', isAuthenticated, (request, response) => {
     response.sendFile(path.join(__dirname, 'src/homepage.html'));
 });
-
-// app.get('/latihan_soal', latihan_soal, (request, response) => {
-//     response.sendFile(path.join(__dirname, 'src/latihan-soal.html'));
-// });
 
 app.use('/latihan_soal', isAuthenticated, latihan_soal);
 
@@ -166,7 +153,6 @@ app.get('/forum', isAuthenticated, (request, response) => {
 
 app.get('/questions', (request, response) => {
     const subchapterName = request.query.subchapter_name;
-    console.log('Received subchapter_name:', subchapterName); // Log subchapter name
     if (!subchapterName) {
         return response.status(400).send('subchapter_name is required');
     }
@@ -184,8 +170,6 @@ app.get('/questions', (request, response) => {
             return response.status(500).send('Error fetching questions');
         }
 
-        console.log('Query Results:', results); // Log query results
-
         const questionsMap = {};
         results.forEach(row => {
             if (!questionsMap[row.question_id]) {
@@ -202,7 +186,6 @@ app.get('/questions', (request, response) => {
         });
 
         const questions = Object.values(questionsMap);
-        console.log('Formatted Questions:', questions); // Log formatted questions
         response.json(questions);
     });
 });
@@ -231,6 +214,11 @@ app.post('/check-answer', (request, response) => {
         const correct = results[0].correct_option_id === selected_option_id;
         response.json({ correct });
     });
+});
+
+app.get('/logouts', isAuthenticated, (request, response) =>{
+    request.session.destroy();
+    response.redirect('/login');
 });
 
 app.listen(3000, () => {
