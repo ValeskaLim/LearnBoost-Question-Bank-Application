@@ -92,6 +92,8 @@ function displayQuestion() {
     document.getElementById('prevButton').classList.toggle('hidden', currentQuestionIndex === 0);
     document.getElementById('nextButton').textContent = currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next';
     document.getElementById('errorContainer').classList.add('hidden');
+
+    MathJax.typeset();
 }
 
 async function nextQuestion() {

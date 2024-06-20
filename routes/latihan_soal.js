@@ -19,7 +19,8 @@ const pageMappings = {
     'Mathpage': 'Mathpage.html',
     'Phypage': 'Phypage.html',
     'latihan_protista_1': 'latihan_protista_1.html',
-    'latihan_klasifikasi_makhluk_hidup_1': 'latihan_klasifikasi_makhluk_hidup_1.html'
+    'latihan_klasifikasi_makhluk_hidup_1': 'latihan_klasifikasi_makhluk_hidup_1.html',
+    'latihan_persamaan_tidaksamaan_linear_1': 'latihan_persamaan_tidaksamaan_linear_1.html'
 };
 
 // Serve specific pages based on the latihansoalPage parameter
