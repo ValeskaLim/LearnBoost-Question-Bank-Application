@@ -39,6 +39,13 @@ npx tailwindcss init
 npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 ```
 
+10. Create database on Xampp, phpmyadmin
+```
+CREATE DATABASE learnboost;
+```
+
+11. Import database from ```database/learnboost_db.sql``` into the new database
+
 10. Run the development server
 ```
 npm start
