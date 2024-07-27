@@ -12,11 +12,6 @@ const con = mysql.createConnection({
     database: "learnboost"
 });
 
-con.connect((err) => {
-    if (err) throw err;
-    console.log("Connected to MySQL database.");
-});
-
 const app = express();
 
 app.use(session({
@@ -82,8 +77,6 @@ app.post('/auth', (request, response) => {
     let username = request.body.username;
     let password = request.body.password;
     let userType = request.body.userType;
-
-    console.log("Usertype: ", userType);
 
     if (username && password) {
         con.query('SELECT * FROM user WHERE username = ? AND password = ?', [username, password], (error, results, fields) => {
