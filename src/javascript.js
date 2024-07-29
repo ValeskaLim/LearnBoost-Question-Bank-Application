@@ -18,6 +18,7 @@ window.addEventListener('resize', checkZoomLevel);
 window.addEventListener('load', checkZoomLevel);
 
 document.addEventListener('DOMContentLoaded', function () {
+
     fetch('/user-grade')
         .then(response => response.json())
         .then(data => {
@@ -47,8 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching name:', error);
             document.querySelector('#names').textContent = 'Error loading name';
         });
-
-    updateProgressCircle();
     fetchQuestions();
 });
 
@@ -96,6 +95,12 @@ function displayQuestion() {
     MathJax.typeset();
 }
 
+let progressBiology = 0;
+let progressKimia = 0;
+let progressEnglish = 0;
+let progressFisika = 0;
+let progressMatematika = 0;
+
 async function nextQuestion() {
     const selectedOption = document.querySelector('input[name="answer"]:checked');
     if (!selectedOption) {
@@ -116,6 +121,25 @@ async function nextQuestion() {
     const result = await response.json();
 
     if (result.correct) {
+        const subject = getSubjectValue();
+        
+        if(subject === 'biology'){
+            progressBiology++;
+            saveProgress();
+        } else if(subject === 'kimia'){
+            progressKimia++;
+            saveProgress();
+        } else if(subject === 'fisika'){
+            progressFisika++;
+            saveProgress();
+        } else if(subject === 'english'){
+            progressEnglish++;
+            saveProgress();
+        } else if(subject === 'matematika'){
+            progressMatematika++;
+            saveProgress();
+        }
+
         if (currentQuestionIndex < questions.length - 1) {
             currentQuestionIndex++;
             displayQuestion();
@@ -124,6 +148,38 @@ async function nextQuestion() {
         }
     } else {
         document.getElementById('errorContainer').classList.remove('hidden');
+    }
+}
+
+function saveProgress() {
+    localStorage.setItem('progressBiology', progressBiology);
+    localStorage.setItem('progressFisika', progressFisika);
+    localStorage.setItem('progressMatematika', progressMatematika);
+    localStorage.setItem('progressKimia', progressKimia);
+    localStorage.setItem('progressEnglish', progressEnglish);
+}
+
+function loadProgress() {
+    const savedProgressBiology = localStorage.getItem('progressBiology');
+    const savedProgressFisika = localStorage.getItem('progressFisika');
+    const savedProgressMatematika = localStorage.getItem('progressMatematika');
+    const savedProgressKimia = localStorage.getItem('progressKimia');
+    const savedProgressEnglish = localStorage.getItem('progressEnglish');
+
+    if (savedProgressBiology !== null) {
+        progressBiology = parseInt(savedProgressBiology, 10);
+    }
+    if (savedProgressFisika !== null) {
+        progressFisika = parseInt(savedProgressFisika, 10);
+    }
+    if (savedProgressMatematika !== null) {
+        progressMatematika = parseInt(savedProgressMatematika, 10);
+    }
+    if (savedProgressKimia !== null) {
+        progressKimia = parseInt(savedProgressKimia, 10);
+    }
+    if (savedProgressEnglish !== null) {
+        progressEnglish = parseInt(savedProgressEnglish, 10);
     }
 }
 
@@ -139,10 +195,30 @@ function prevQuestion() {
 }
 
 function updateProgressCircle() {
+    let progressValue = 0;
+
+    const subject = getSubjectValue();
+    if(subject === 'biology')
+        progressValue = progressBiology;
+    else if (subject === 'kimia')
+        progressValue = progressKimia;
+    else if (subject === 'english')
+        progressValue = progressEnglish;
+    else if (subject === 'fisika')
+        progressValue = progressFisika;
+    else if (subject === 'matematika')
+        progressValue = progressMatematika;
+    if(subject === 'latihanSoal'){
+        progressValue = (progressBiology + progressKimia + progressEnglish + progressFisika + progressMatematika);
+    }
+
     const progressValueElement = document.getElementById('progress-value');
     const progressCircle = document.querySelector('.progress-circle');
+    progressValueElement.textContent = ((progressValue / 125) * 100).toFixed(1) + "%";
+    if(subject !== 'latihanSoal')
+        progressValueElement.textContent = ((progressValue / 25) * 100)+ "%";
     const progressPercentage = parseInt(progressValueElement.textContent);
-
+    
     const radius = 60;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (progressPercentage / 100) * circumference;
@@ -162,7 +238,15 @@ function updateProgressBars() {
     });
 }
 
+function getSubjectValue(){
+    const subject = document.getElementById('subject').value;
+    return subject
+    ;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    loadProgress();
+    updateProgressCircle();
     updateProgressBars();
     fetchQuestions();
 });

@@ -47,6 +47,7 @@
         </div>
     </div>
     <!-- Body Content -->
+    <input id="subject" type="hidden" value="latihanSoal">
     <div class="w-full pl-[220px] pt-[17px] pr-[40px]">
         <!-- Navbar -->
         <div class="flex w-full items-center bg-white sticky top-0 z-30">
@@ -77,7 +78,7 @@
                     <section>
                         <div class="grid grid-cols-2 gap-4 mb-8">
                             <!-- Subject Cards -->
-                            <a href="/latihan_soal/Biopage">
+                            <a href="/latihan_soal/Biopage" onclick="return getSubjectValue('biology')">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-green-500 w-2 h-16"></div>
                                     <div>
@@ -87,7 +88,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="/latihan_soal/Chempage">
+                            <a href="/latihan_soal/Chempage" onclick="return getSubjectValue('kimia')">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-red-500 w-2 h-16"></div>
                                     <div>
@@ -97,7 +98,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="/latihan_soal/Phypage">
+                            <a href="/latihan_soal/Phypage" onclick="return getSubjectValue('fisika')">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-blue-500 w-2 h-16"></div>
                                     <div>
@@ -107,7 +108,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="/latihan_soal/Mathpage">
+                            <a href="/latihan_soal/Mathpage" onclick="return getSubjectValue('matematika')">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-purple-500 w-2 h-16"></div>
                                     <div>
@@ -117,7 +118,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="/latihan_soal/Engpage">
+                            <a href="/latihan_soal/Engpage" onclick="return getSubjectValue('english')">
                                 <div class="bg-white border border-gray-300 rounded-lg p-4 flex items-center space-x-4">
                                     <div class="flex-shrink-0 bg-yellow-500 w-2 h-16"></div>
                                     <div>
@@ -143,7 +144,7 @@
                                     <circle cx="75" cy="75" r="60" stroke="#d3d3d3" stroke-width="10" fill="none" />
                                     <circle cx="75" cy="75" r="60" stroke="#00ff00" stroke-width="10" fill="none" stroke-linecap="round" class="progress-circle" style="stroke-dasharray: 377; stroke-dashoffset: 131.95;" />
                                 </svg>
-                                <div class="absolute inset-0 flex items-center justify-center text-2xl font-bold z-10" id="progress-value">40%</div>
+                                <div class="absolute inset-0 flex items-center justify-center text-2xl font-bold z-10" id="progress-value"></div>
                             </div>
                         </div>
                         <p class="mt-2 text-lg">Average Score</p>
