@@ -152,19 +152,19 @@ async function nextQuestion() {
 }
 
 function saveProgress() {
-    localStorage.setItem('progressBiology', progressBiology);
-    localStorage.setItem('progressFisika', progressFisika);
-    localStorage.setItem('progressMatematika', progressMatematika);
-    localStorage.setItem('progressKimia', progressKimia);
-    localStorage.setItem('progressEnglish', progressEnglish);
+    sessionStorage.setItem('progressBiology', progressBiology);
+    sessionStorage.setItem('progressFisika', progressFisika);
+    sessionStorage.setItem('progressMatematika', progressMatematika);
+    sessionStorage.setItem('progressKimia', progressKimia);
+    sessionStorage.setItem('progressEnglish', progressEnglish);
 }
 
 function loadProgress() {
-    const savedProgressBiology = localStorage.getItem('progressBiology');
-    const savedProgressFisika = localStorage.getItem('progressFisika');
-    const savedProgressMatematika = localStorage.getItem('progressMatematika');
-    const savedProgressKimia = localStorage.getItem('progressKimia');
-    const savedProgressEnglish = localStorage.getItem('progressEnglish');
+    const savedProgressBiology = sessionStorage.getItem('progressBiology');
+    const savedProgressFisika = sessionStorage.getItem('progressFisika');
+    const savedProgressMatematika = sessionStorage.getItem('progressMatematika');
+    const savedProgressKimia = sessionStorage.getItem('progressKimia');
+    const savedProgressEnglish = sessionStorage.getItem('progressEnglish');
 
     if (savedProgressBiology !== null) {
         progressBiology = parseInt(savedProgressBiology, 10);
@@ -192,6 +192,14 @@ function prevQuestion() {
         currentQuestionIndex--;
         displayQuestion();
     }
+}
+
+function updateProgressText(){
+    document.getElementById('progressBiology').innerHTML = (progressBiology / 25) * 100 + "%";
+    document.getElementById('progressKimia').innerHTML = (progressKimia / 25) * 100 + "%";
+    document.getElementById('progressFisika').innerHTML = (progressFisika / 25) * 100 + "%";
+    document.getElementById('progressMatematika').innerHTML = (progressMatematika / 25) * 100 + "%";
+    document.getElementById('progressEnglish').innerHTML = (progressEnglish / 25) * 100 + "%";
 }
 
 function updateProgressCircle() {
@@ -230,23 +238,50 @@ function updateProgressCircle() {
 }
 
 function updateProgressBars() {
-    const progressElements = document.querySelectorAll('.progress-bar');
-    progressElements.forEach((progressElement) => {
-        const progressValueElement = progressElement.nextElementSibling;
-        const progressPercentage = parseInt(progressValueElement.textContent);
-        progressElement.style.width = progressPercentage + '%';
-    });
+    const progressBiologyBar = document.getElementById('progressBiologyBar');
+    const progressKimiaBar = document.getElementById('progressKimiaBar');
+    const progressMatematikaBar = document.getElementById('progressMatematikaBar');
+    const progressFisikaBar = document.getElementById('progressFisikaBar');
+    const progressEnglishBar = document.getElementById('progressEnglishBar');
+
+    
+    const progressBiologyPercentage = (progressBiology / 25) * 100;
+    const progressFisikaPercentage = (progressFisika / 25) * 100;
+    const progressEnglishPercentage = (progressEnglish / 25) * 100;
+    const progressKimiaPercentage = (progressKimia / 25) * 100;
+    const progressMatematikaPercentage = (progressMatematika / 25) * 100;
+
+    progressBiologyBar.style.width = `${progressBiologyPercentage}%`;
+    progressFisikaBar.style.width = `${progressFisikaPercentage}%`;
+    progressEnglishBar.style.width = `${progressEnglishPercentage}%`;
+    progressKimiaBar.style.width = `${progressKimiaPercentage}%`;
+    progressMatematikaBar.style.width = `${progressMatematikaPercentage}%`;
+
+
+    progressBiologyBar.nextElementSibling.textContent = progressBiologyPercentage + '%';
+    progressFisikaBar.nextElementSibling.textContent = progressFisikaPercentage + '%';
+    progressEnglishBar.nextElementSibling.textContent = progressEnglishPercentage + '%';
+    progressKimiaBar.nextElementSibling.textContent = progressKimiaPercentage + '%';
+    progressMatematikaBar.nextElementSibling.textContent = progressMatematikaPercentage + '%';
 }
 
 function getSubjectValue(){
     const subject = document.getElementById('subject').value;
-    return subject
-    ;
+    return subject;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     loadProgress();
-    updateProgressCircle();
+    updateProgressText();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadProgress();
     updateProgressBars();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadProgress();
+    updateProgressCircle();
     fetchQuestions();
 });
