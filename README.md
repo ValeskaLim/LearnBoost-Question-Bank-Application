@@ -30,7 +30,8 @@ npm install express mysql
 
 8. Install Tailwind CSS
 ```
-npm install -D tailwindcss
+npm install -D tailwindcss postcss-import autoprefixer
+
 npx tailwindcss init
 ```
 
