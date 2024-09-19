@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
+const isAuthenticated = require('../middleware/authMiddleware');
 
 router.use('/assets', express.static(path.join(__dirname, '../assets')));
 router.use(express.static(path.join(__dirname, '../src')));
 
-router.get('', (req, res) => {
+router.get('/latihan_soal', isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, '../src/latihan-soal.html'));
 });
 
@@ -42,7 +43,7 @@ const pageMappings = {
     'latihan_getaran_harmonis_1': 'latihan_getaran_harmonis_1.html'
 };
 
-router.get('/:latihansoalPage', (req, res) => {
+router.get('/latihan_soal/:latihansoalPage', isAuthenticated, (req, res) => {
     const pageName = req.params.latihansoalPage;
     console.log(`Primary page request: ${pageName}`);
     const filePath = pageMappings[pageName];
@@ -59,7 +60,7 @@ router.get('/:latihansoalPage', (req, res) => {
     }
 });
 
-router.get('/:latihansoalPage/:detailPage', (req, res) => {
+router.get('/latihan_soal/:latihansoalPage/:detailPage', isAuthenticated, (req, res) => {
     const detailPage = req.params.detailPage;
     const latihansoalPage = req.params.latihansoalPage;
     console.log(`Detail page request: ${detailPage}`);

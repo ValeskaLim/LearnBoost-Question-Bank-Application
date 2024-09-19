@@ -20,7 +20,12 @@ window.addEventListener('load', checkZoomLevel);
 document.addEventListener('DOMContentLoaded', function () {
 
     fetch('/user-grade')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.grade) {
                 document.querySelector('#navbar-grade').textContent = data.grade + 'th Grade';
@@ -36,7 +41,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     fetch('/user-name')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.username) {
                 document.querySelector('#names').textContent = data.username.toUpperCase();
